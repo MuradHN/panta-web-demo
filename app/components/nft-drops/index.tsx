@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import BANNER_DROP_1 from "@/app/assets/banners/nft-drops-banner.svg";
+import BANNER_DROP_1_MOBILE from "@/app/assets/banners/nft-drops-banner-mobile.svg";
 import IMG7 from "@/app/assets/images/img7-img.svg";
 import IMG8 from "@/app/assets/images/img8-img.svg";
 import LEFT_ICON from "@/app/assets/icons/left-icon.svg";
@@ -49,13 +50,23 @@ export function NftDrops() {
                 index === currentIndex ? "opacity-100" : "opacity-0"
               }`}
             >
-              <Image
-                src={BANNER_DROP_1}
-                alt={`drop-banner-${index}`}
-                fill
-                className="object-cover"
-                priority
-              />
+              <picture>
+                <source
+                  srcSet={BANNER_DROP_1_MOBILE.src}
+                  media="(max-width: 767px)"
+                />
+                <source
+                  srcSet={BANNER_DROP_1.src}
+                  media="(min-width: 768px)"
+                />
+                <Image
+                  src={BANNER_DROP_1}
+                  alt={`drop-banner-${index}`}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </picture>
             </div>
           ))}
         </div>

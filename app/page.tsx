@@ -6,7 +6,6 @@ import { NftDrops } from "./components/nft-drops";
 export default function Home() {
   return (
     <main>
-      {/* <Header /> */}
       <Banner />
       <div className="bg-banner">
         <Actions />

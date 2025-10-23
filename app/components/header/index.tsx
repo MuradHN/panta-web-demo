@@ -61,7 +61,7 @@ const Header = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#1E1E1E] h-[calc(100vh-60px)] flex flex-col items-center p-5 z-50 animate-fadeIn gap-4">
+        <div className="absolute top-full left-0 w-full bg-[#1E1E1E] h-[calc(100vh)] flex flex-col items-center p-5 z-50 animate-fadeIn gap-4">
           {MENUS.map((menu) => (
             <div
               key={menu.id}

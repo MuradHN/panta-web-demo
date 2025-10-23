@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BANNER from '@/app/assets/banners/nft-banner.svg';
 import BANNER_MOBILE from '@/app/assets/banners/nft-banner-mobile.svg';
 
@@ -9,6 +9,12 @@ const slides = [BANNER, BANNER, BANNER];
 
 export function Banner() {
   const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative w-full overflow-hidden">
@@ -17,19 +23,13 @@ export function Banner() {
         style={{ transform: `translateX(-${current * 100}%)` }}
       >
         {slides.map((src, i) => (
-          <div key={i} className="relative w-full h-[450px] max-lg:h-80 max-xs:h-[180px] shrink-0">
+          <div key={i} className="relative w-full h-[28.125vw] max-lg:h-80 max-xs:h-[180px] shrink-0">
             <picture>
-              <source
-                srcSet={BANNER_MOBILE.src}
-                media="(max-width: 767px)"
-              />
-              <source
-                srcSet={BANNER_MOBILE.src}
-                media="(min-width: 768px)"
-              />
+              <source srcSet={BANNER_MOBILE.src} media="(max-width: 767px)" />
+              <source srcSet={BANNER.src} media="(min-width: 768px)" />
               <Image
-                src={BANNER}
-                alt="banner"
+                src={src}
+                alt={`banner-${i}`}
                 fill
                 className="object-cover"
                 priority

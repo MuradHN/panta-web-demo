@@ -51,7 +51,7 @@ function Footer() {
           </div>
         ))}
 
-        <div className="flex flex-col min-w-[200px]">
+        <div className="flex flex-col min-w-[150px]">
           <h3 className="font-black italic mb-3 text-[18px] text-text">CONTACT US</h3>
           <ul className="space-y-2 text-[14px] mb-4 text-footer">
             <li>support@tech.email</li>

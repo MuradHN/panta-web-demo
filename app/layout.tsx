@@ -30,7 +30,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        {children}
+        <div className="max-lg:mt-[67px] max-xs:mt-[60px] mt-[83px]">
+          {children}
+        </div>
         <div className="bg-secondary border-t border-button">
           <div className='max-w-[1128px] mx-auto py-10 text-text max-xs:py-5'>
             <Footer />

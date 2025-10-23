@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import LOGO from '@/app/assets/logos/app-logo.svg'
 import MENU_MOBILE_ICON from '@/app/assets/icons/menu-mobile-icon.svg'
-import CLOSE_ICON from '@/app/assets/icons/close-icon.svg' // thêm icon X
+import CLOSE_ICON from '@/app/assets/icons/close-icon.svg'
 import { PentaButton } from '../button'
 import { MENUS } from '@/app/constants'
 
@@ -14,7 +14,10 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <header className="bg-secondary px-10 py-5 max-xs:px-5 max-xs:py-3 max-xs:h-[60px] max-lg:px-5 max-lg:py-3 relative">
+    <header
+      className={`fixed top-0 left-0 w-full bg-secondary border-b border-button z-50 px-10 py-5 
+      max-xs:px-5 max-xs:py-3 max-xs:h-[60px] max-lg:px-5 max-lg:py-3`}
+    >
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <button
@@ -27,8 +30,11 @@ const Header = () => {
               className="w-6 h-6"
             />
           </button>
-
-          <Image src={LOGO} alt="logo-app" className="mr-6 max-xs:h-9 max-lg:h-9" />
+          <Image
+            src={LOGO}
+            alt="logo-app"
+            className="mr-6 max-xs:h-9 max-lg:h-9"
+          />
           <div className="flex items-center max-lg:hidden max-xs:hidden">
             {MENUS.map((menu) => (
               <div
@@ -44,7 +50,6 @@ const Header = () => {
             ))}
           </div>
         </div>
-
         <div className="flex items-center gap-2">
           <PentaButton
             variant="primary"
@@ -61,7 +66,7 @@ const Header = () => {
         </div>
       </div>
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#1E1E1E] h-[calc(100vh)] flex flex-col items-center p-5 z-50 animate-fadeIn gap-4">
+        <div className="fixed top-[60px] left-0 w-full h-[calc(100vh-60px)] bg-[#1E1E1E] flex flex-col items-center p-5 z-40 animate-fadeIn gap-4 overflow-y-auto">
           {MENUS.map((menu) => (
             <div
               key={menu.id}

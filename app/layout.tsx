@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Panta Website",
-  description: "Demo website Panta",
+  title: "Penta Website",
+  description: "Demo website Penta",
 };
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
           {children}
         </div>
         <div className="bg-secondary border-t border-button">
-          <div className='max-w-[1128px] mx-auto py-10 text-text max-xs:py-5'>
+          <div className="max-w-[1128px] mx-auto py-10 text-text max-xs:py-5">
             <Footer />
           </div>
         </div>
